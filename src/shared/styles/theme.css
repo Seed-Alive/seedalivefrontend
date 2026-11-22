@@ -1,0 +1,264 @@
+/* Made by tools/gen-tokens.mjs from design/tokens.json. Do not edit. */
+
+/* Clearing each namespace first puts Tailwind's own palette and sizes out of reach. */
+@theme static {
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-inherit: inherit;
+
+  /* Literata is for scripture; Bricolage is for everything else. */
+  --font-sans: 'Bricolage Grotesque', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Literata', ui-serif, Georgia, 'Times New Roman', serif;
+
+  /* One step of spacing, so p-4 is 16px and gap-2 is 8px. */
+  --spacing: 4px;
+
+  /* Greys, the same in both themes. */
+  --color-grey-0: #FFFFFF;
+  --color-grey-50: #FAFAFA;
+  --color-grey-100: #F4F4F5;
+  --color-grey-200: #E4E4E7;
+  --color-grey-300: #D4D4D8;
+  --color-grey-400: #A1A1AA;
+  --color-grey-500: #71717A;
+  --color-grey-600: #52525B;
+  --color-grey-700: #3F3F46;
+  --color-grey-800: #27272A;
+  --color-grey-850: #1A1A1A;
+  --color-grey-900: #141414;
+  --color-grey-925: #0F0F0F;
+  --color-grey-950: #0A0A0A;
+  --color-grey-1000: #000000;
+
+  /* Corner roundness. */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* Text sizes and weights. */
+  --text-display-56: 56px;
+  --text-display-56--font-weight: 800;
+  --text-heading-h1-30: 30px;
+  --text-heading-h1-30--font-weight: 800;
+  --text-heading-screen-24: 24px;
+  --text-heading-screen-24--font-weight: 800;
+  --text-heading-h2-20: 20px;
+  --text-heading-h2-20--font-weight: 800;
+  --text-heading-h3-18: 18px;
+  --text-heading-h3-18--font-weight: 700;
+  --text-heading-card-16: 16px;
+  --text-heading-card-16--font-weight: 700;
+  --text-body-large-16: 16px;
+  --text-body-large-16--font-weight: 400;
+  --text-body-default-15: 15px;
+  --text-body-default-15--font-weight: 400;
+  --text-body-small-14: 14px;
+  --text-body-small-14--font-weight: 400;
+  --text-label-default-15: 15px;
+  --text-label-default-15--font-weight: 600;
+  --text-label-small-13: 13px;
+  --text-label-small-13--font-weight: 600;
+  --text-label-button-16: 16px;
+  --text-label-button-16--font-weight: 700;
+  --text-caption-12: 12px;
+  --text-caption-12--font-weight: 500;
+  --text-overline-12: 12px;
+  --text-overline-12--font-weight: 700;
+  --text-scripture-18: 18px;
+  --text-scripture-18--font-weight: 400;
+
+  /* Colours for the light theme. */
+  --color-primary: #0A0A0A;
+  --color-primary-hover: #27272A;
+  --color-on-primary: #FFFFFF;
+  --color-bg: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F4F4F5;
+  --color-line: #E4E4E7;
+  --color-ink: #0A0A0A;
+  --color-text-2: #3F3F46;
+  --color-muted: #71717A;
+  --color-secondary: #18181B;
+  --color-secondary-strong: #000000;
+  --color-secondary-soft: #F4F4F5;
+  --color-secondary-ink: #0A0A0A;
+  --color-on-secondary: #FFFFFF;
+  --color-hero: #0A0A0A;
+  --color-accent: #4CA330;
+  --color-accent-soft: #EEF7E8;
+  --color-accent-ink: #2F7A1F;
+  --color-on-accent: #FFFFFF;
+  --color-warm: #F4F4F5;
+  --color-gold: #52525B;
+  --color-gold-soft: #F4F4F5;
+  --color-gold-ink: #27272A;
+  --color-danger: #B42318;
+  --color-danger-soft: #FDECEA;
+  --color-info-soft: #F4F4F5;
+  --color-info-ink: #27272A;
+}
+
+/* Named spacing and grey steps, for the rare rule written by hand. */
+:root {
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+
+  --grey-0: var(--color-grey-0);
+  --grey-50: var(--color-grey-50);
+  --grey-100: var(--color-grey-100);
+  --grey-200: var(--color-grey-200);
+  --grey-300: var(--color-grey-300);
+  --grey-400: var(--color-grey-400);
+  --grey-500: var(--color-grey-500);
+  --grey-600: var(--color-grey-600);
+  --grey-700: var(--color-grey-700);
+  --grey-800: var(--color-grey-800);
+  --grey-850: var(--color-grey-850);
+  --grey-900: var(--color-grey-900);
+  --grey-925: var(--color-grey-925);
+  --grey-950: var(--color-grey-950);
+  --grey-1000: var(--color-grey-1000);
+}
+
+/* Dark when the device asks for it, unless the user chose light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-primary: #FAFAFA;
+    --color-primary-hover: #E4E4E7;
+    --color-on-primary: #0A0A0A;
+    --color-bg: #000000;
+    --color-surface: #0F0F0F;
+    --color-surface-2: #1A1A1A;
+    --color-line: #262626;
+    --color-ink: #FAFAFA;
+    --color-text-2: #D4D4D8;
+    --color-muted: #A1A1AA;
+    --color-secondary: #FAFAFA;
+    --color-secondary-strong: #FFFFFF;
+    --color-secondary-soft: #1F1F1F;
+    --color-secondary-ink: #FAFAFA;
+    --color-on-secondary: #0A0A0A;
+    --color-hero: #141414;
+    --color-accent: #7BC74D;
+    --color-accent-soft: #16260F;
+    --color-accent-ink: #9BD873;
+    --color-on-accent: #0A0A0A;
+    --color-warm: #1F1F1F;
+    --color-gold: #A1A1AA;
+    --color-gold-soft: #1F1F1F;
+    --color-gold-ink: #E4E4E7;
+    --color-danger: #F97066;
+    --color-danger-soft: #3D1714;
+    --color-info-soft: #1F1F1F;
+    --color-info-ink: #E4E4E7;
+  }
+}
+
+/* Dark because the user chose it. */
+:root[data-theme='dark'] {
+  --color-primary: #FAFAFA;
+  --color-primary-hover: #E4E4E7;
+  --color-on-primary: #0A0A0A;
+  --color-bg: #000000;
+  --color-surface: #0F0F0F;
+  --color-surface-2: #1A1A1A;
+  --color-line: #262626;
+  --color-ink: #FAFAFA;
+  --color-text-2: #D4D4D8;
+  --color-muted: #A1A1AA;
+  --color-secondary: #FAFAFA;
+  --color-secondary-strong: #FFFFFF;
+  --color-secondary-soft: #1F1F1F;
+  --color-secondary-ink: #FAFAFA;
+  --color-on-secondary: #0A0A0A;
+  --color-hero: #141414;
+  --color-accent: #7BC74D;
+  --color-accent-soft: #16260F;
+  --color-accent-ink: #9BD873;
+  --color-on-accent: #0A0A0A;
+  --color-warm: #1F1F1F;
+  --color-gold: #A1A1AA;
+  --color-gold-soft: #1F1F1F;
+  --color-gold-ink: #E4E4E7;
+  --color-danger: #F97066;
+  --color-danger-soft: #3D1714;
+  --color-info-soft: #1F1F1F;
+  --color-info-ink: #E4E4E7;
+}
+
+/* Forces one palette on a patch of the page, whatever the theme is. */
+[data-tone='light'] {
+  --color-primary: #0A0A0A;
+  --color-primary-hover: #27272A;
+  --color-on-primary: #FFFFFF;
+  --color-bg: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F4F4F5;
+  --color-line: #E4E4E7;
+  --color-ink: #0A0A0A;
+  --color-text-2: #3F3F46;
+  --color-muted: #71717A;
+  --color-secondary: #18181B;
+  --color-secondary-strong: #000000;
+  --color-secondary-soft: #F4F4F5;
+  --color-secondary-ink: #0A0A0A;
+  --color-on-secondary: #FFFFFF;
+  --color-hero: #0A0A0A;
+  --color-accent: #4CA330;
+  --color-accent-soft: #EEF7E8;
+  --color-accent-ink: #2F7A1F;
+  --color-on-accent: #FFFFFF;
+  --color-warm: #F4F4F5;
+  --color-gold: #52525B;
+  --color-gold-soft: #F4F4F5;
+  --color-gold-ink: #27272A;
+  --color-danger: #B42318;
+  --color-danger-soft: #FDECEA;
+  --color-info-soft: #F4F4F5;
+  --color-info-ink: #27272A;
+}
+
+[data-tone='dark'] {
+  --color-primary: #FAFAFA;
+  --color-primary-hover: #E4E4E7;
+  --color-on-primary: #0A0A0A;
+  --color-bg: #000000;
+  --color-surface: #0F0F0F;
+  --color-surface-2: #1A1A1A;
+  --color-line: #262626;
+  --color-ink: #FAFAFA;
+  --color-text-2: #D4D4D8;
+  --color-muted: #A1A1AA;
+  --color-secondary: #FAFAFA;
+  --color-secondary-strong: #FFFFFF;
+  --color-secondary-soft: #1F1F1F;
+  --color-secondary-ink: #FAFAFA;
+  --color-on-secondary: #0A0A0A;
+  --color-hero: #141414;
+  --color-accent: #7BC74D;
+  --color-accent-soft: #16260F;
+  --color-accent-ink: #9BD873;
+  --color-on-accent: #0A0A0A;
+  --color-warm: #1F1F1F;
+  --color-gold: #A1A1AA;
+  --color-gold-soft: #1F1F1F;
+  --color-gold-ink: #E4E4E7;
+  --color-danger: #F97066;
+  --color-danger-soft: #3D1714;
+  --color-info-soft: #1F1F1F;
+  --color-info-ink: #E4E4E7;
+}

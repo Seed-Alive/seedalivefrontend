@@ -1,0 +1,20 @@
+/* The only stylesheet the app loads: Tailwind, then the design tokens, then base rules. */
+@import 'tailwindcss';
+@import './theme.css';
+@import './base.css';
+
+/* The dark green backdrop behind the first few onboarding screens. */
+@utility stage-backdrop {
+  background:
+    radial-gradient(120% 60% at 50% 42%, rgb(47 122 31 / 0.5), transparent 70%),
+    var(--grey-900);
+}
+
+/* Draws the logo as a mask so it takes the colour of its surroundings. */
+@utility brand-mark {
+  background-color: currentColor;
+  mask-image: url('/brand/mark-white.png');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
