@@ -78,6 +78,8 @@ export function useYouTubePlayer({
         host.appendChild(mount);
         playerRef.current = new YT.Player(mount, {
           videoId,
+          width: '100%',
+          height: '100%',
           host: 'https://www.youtube-nocookie.com',
           playerVars: {
             autoplay: autoplay ? 1 : 0,

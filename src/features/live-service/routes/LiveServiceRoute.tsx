@@ -81,7 +81,7 @@ export default function LiveServiceRoute() {
         </div>
 
         <div className="relative overflow-hidden aspect-video rounded-lg bg-grey-900">
-          <div className="absolute inset-0 [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0" ref={player.containerRef} />
+          <div className="absolute inset-0 video-stage" ref={player.containerRef} />
           {!videoId && (
             <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
               <Text variant="body-small-14" color="muted">

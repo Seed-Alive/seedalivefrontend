@@ -18,3 +18,15 @@
   mask-position: center;
   mask-size: contain;
 }
+
+/* Makes a player the provider drops in here fill the stage, whatever size it asks for. */
+@utility video-stage {
+  & > *,
+  & iframe {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+  }
+}
