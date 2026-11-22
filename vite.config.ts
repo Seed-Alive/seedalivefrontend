@@ -45,12 +45,12 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         runtimeCaching: [
           {
-            // Scripture and devotional text should survive a bad connection.
+            // Scripture and devotional text should survive a bad connection or a sleeping server.
             urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api',
-              networkTimeoutSeconds: 5,
+              networkTimeoutSeconds: 60,
               expiration: { maxEntries: 200, maxAgeSeconds: 60 * 60 * 24 * 7 },
             },
           },
